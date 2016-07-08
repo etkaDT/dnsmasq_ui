@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta http-equiv="refresh" content="60">
+        <meta http-equiv="cache-control" content="no-cache">
+        <link rel="stylesheet" href="{{ url_for('static', filename='site.css')}}">
+        <title>DNSMasq Leases</title>
+    </head>
+    <body>
+        <h3>DNSMasq leases</h3>
+        <table id="leases">
+            <thead>
+                <tr>
+                    <th>MAC</th>
+                    <th>IP</th>
+                    <th>Hostname</th>
+                    <th>Lease expiration time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lease in leases %}
+                <tr>
+                    <td> {{ lease.mac }} </td>
+                    <td> {{ lease.ip }} </td>
+                    <td> {{ lease.hostname }} </td>
+                    <td> {{ lease.ts }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
